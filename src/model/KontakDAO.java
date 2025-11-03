@@ -49,7 +49,7 @@ public class KontakDAO {
     public void updateContact(Kontak contact) throws SQLException { 
         String sql = "UPDATE contacts SET nama = ?, nomor_telepon = ?, kategori = ? WHERE id = ?"; 
         try (Connection conn = DatabaseConnection.getConnection(); 
-             PreparedStatement pstmt = conn.prepareStatement(sql)) { 
+            PreparedStatement pstmt = conn.prepareStatement(sql)) { 
             pstmt.setString(1, contact.getNama()); 
             pstmt.setString(2, contact.getNomorTelepon()); 
             pstmt.setString(3, contact.getKategori()); 
@@ -62,7 +62,7 @@ public class KontakDAO {
     public void deleteContact(int contactId) throws SQLException { 
         String sql = "DELETE FROM contacts WHERE id = ?"; 
         try (Connection conn = DatabaseConnection.getConnection(); 
-             PreparedStatement pstmt = conn.prepareStatement(sql)) { 
+            PreparedStatement pstmt = conn.prepareStatement(sql)) { 
             pstmt.setInt(1, contactId); 
             pstmt.executeUpdate(); 
         } 
